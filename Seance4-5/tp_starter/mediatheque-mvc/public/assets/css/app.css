@@ -1,0 +1,2 @@
+/* Feuille de style personnelle : chargée APRÈS Bootstrap pour pouvoir le surcharger. */
+.carte-livre:hover { box-shadow: 0 .25rem .75rem rgb(0 0 0 / .15); }

@@ -1,0 +1,5 @@
+# Apache (XAMPP) : toute URL qui n'est pas un fichier ou un dossier existant est envoyée au contrôleur frontal.
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [L]

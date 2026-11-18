@@ -1,0 +1,12 @@
+<nav class="navbar bg-body-tertiary border-bottom">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="{{ path('accueil') }}">
+            <img src="{{ asset('img/logo.svg') }}" alt="" width="30" height="30">
+            {{ app_nom }}
+        </a>
+        <form class="d-flex" role="search" action="{{ path('accueil') }}" method="get">
+            <input class="form-control me-2" type="search" name="q" value="{{ q|default('') }}" placeholder="Titre ou auteur" aria-label="Rechercher">
+            <button class="btn btn-outline-primary" type="submit">Rechercher</button>
+        </form>
+    </div>
+</nav>

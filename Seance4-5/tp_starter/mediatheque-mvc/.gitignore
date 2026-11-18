@@ -1,0 +1,16 @@
+# Configuration locale et secrets : JAMAIS dans Git
+/config/local.php
+.env
+
+# Dépendances (recréées par « composer install ») et fichiers générés
+/vendor/
+/storage/cache/*
+/storage/logs/*
+!/storage/cache/.gitkeep
+!/storage/logs/.gitkeep
+
+# Éditeurs et système
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

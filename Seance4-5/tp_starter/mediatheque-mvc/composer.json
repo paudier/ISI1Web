@@ -1,0 +1,12 @@
+{
+    "name": "ecole/mediatheque-mvc",
+    "description": "TP MVC - Mediatheque",
+    "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "twig/twig": "^3.30"
+    },
+    "autoload": {
+        "psr-4": { "App\\": "src/" }
+    }
+}

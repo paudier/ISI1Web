@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur {{ code }}{% endblock %}
+
+{% block content %}
+    <div class="text-center py-5">
+        <p class="display-1 text-body-secondary">{{ code }}</p>
+        <p class="lead">{{ message }}</p>
+        <a class="btn btn-primary" href="{{ path('accueil') }}">Retour au catalogue</a>
+    </div>
+{% endblock %}

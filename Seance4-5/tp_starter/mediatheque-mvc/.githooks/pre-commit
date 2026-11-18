@@ -1,0 +1,21 @@
+#!/bin/sh
+# Garde-fou : empêche de commiter la configuration locale ou un mot de passe en clair.
+# Activation (une fois par clone) :  git config core.hooksPath .githooks
+
+# 1. Fichiers qui ne doivent jamais être versionnés
+for f in $(git diff --cached --name-only --diff-filter=ACM); do
+    case "$f" in
+        config/local.php|.env|*.pem|*.key)
+            echo "ERREUR : « $f » ne doit pas être commité (configuration locale / secret)." >&2
+            echo "         Retirez-le :  git restore --staged $f" >&2
+            exit 1 ;;
+    esac
+done
+
+# 2. Mot de passe non vide ajouté dans un fichier de configuration versionné
+if git diff --cached -U0 -- config/app.php config/local.example.php | grep -E "^\+.*'pass'[[:space:]]*=>[[:space:]]*'[^']+'" >/dev/null; then
+    echo "ERREUR : un mot de passe semble écrit dans un fichier de configuration versionné." >&2
+    echo "         Placez-le dans config/local.php (ignoré par Git)." >&2
+    exit 1
+fi
+exit 0
