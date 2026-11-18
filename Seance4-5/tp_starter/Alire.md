@@ -32,6 +32,4 @@ Sans Apache : `php -S localhost:8000 -t public` puis <http://localhost:8000/>.
 `config/app.php` (versionné) contient les valeurs par défaut **sans secret**. `config/local.php` (ignoré par Git)
 est fusionné par-dessus : c'est là que vont le mot de passe de la base et le mode `debug`.
 
-## Tests
 
-`php tests/run.php` (nécessite l'extension `pdo_sqlite`). Le dossier `etapes/` du corrigé contient les étapes 1 à 4 du cours.
